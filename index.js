@@ -5,7 +5,7 @@ const http = require("http")
 
 // create instance of Express to route and serve static files
 const app = express()
-// create http server 
+// create http server
 const server = http.createServer(app)
 // instance of socet.io
 const io = socketio(server)
@@ -14,3 +14,12 @@ const io = socketio(server)
 app.use("/", express.static(__dirname + "/public"))
 
 server.listen(3000)
+
+io.on("connection", () => {
+        console.log("There is a new connection!")
+})
+/*
+setInverval(() => {
+        io.emit("message", "Hello, this is a chat message!")
+}, 3000)
+*/
