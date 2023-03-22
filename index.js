@@ -1,25 +1,25 @@
-// Importing node libraries
-const express = require("express")
-const socketio = require("socket.io")
-const http = require("http")
+const express = require('express');
+const app = express();
+const { Server } = require('socket.io');
+const http = require('http');
+const server = http.createServer(app);
+const io = new Server(server);
+const port = 5000;
 
-// create instance of Express to route and serve static files
-const app = express()
-// create http server
-const server = http.createServer(app)
-// instance of socet.io
-const io = socketio(server)
+app.get('/', (req, res) => {
+	res.sendFile(__dirname + '/index.html');
+});
 
-// Express serves static files inside of the /public folder
-app.use("/", express.static(__dirname + "/public"))
+io.on('connection', (socket) => {
+	socket.on('send name', (username) => {
+		io.emit('send name', (username));
+	});
 
-server.listen(3000)
+	socket.on('send message', (chat) => {
+		io.emit('send message', (chat));
+	});
+});
 
-io.on("connection", () => {
-        console.log("There is a new connection!")
-})
-/*
-setInverval(() => {
-        io.emit("message", "Hello, this is a chat message!")
-}, 3000)
-*/
+server.listen(port, () => {
+	console.log(`Server is listening at the port: ${port}`);
+});
