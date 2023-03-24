@@ -52,10 +52,10 @@
 
 	socket.on("send name", (username) => {
 		let name = document.createElement("p");
-		name.style.backgroundColor = "grey";
 		name.style.width = "100%";
 		name.style.textAlign = "left";
 		name.style.color = "white";
+        name.style.fontWeight = "bold";
 		name.textContent = username + ":";
 		messageArea.appendChild(name);
 	});
@@ -63,6 +63,9 @@
 	socket.on("send message", (chat) => {
 		let chatContent = document.createElement("p");
 		chatContent.textContent = chat;
+        chatContent.style.color = "white";
+        chatContent.style.margin = "0";
+        chatContent.style.padding = "0";
 		messageArea.appendChild(chatContent);
 	});
 </script>
