@@ -61,7 +61,7 @@
 	});
 
 	socket.on("send name", (username) => {
-		let name = document.createElement("speech-bubble");
+		let name = document.createElement("p");
 		name.style.backgroundColor = "grey";
 		name.style.width = "100%";
 		name.style.textAlign = "center";
@@ -71,7 +71,7 @@
 	});
 
 	socket.on("send message", (chat) => {
-		let chatContent = document.createElement("speech-bubble");
+		let chatContent = document.createElement("p");
 		chatContent.textContent = chat;
 		messageArea.appendChild(chatContent);
 	});
