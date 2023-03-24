@@ -3,19 +3,19 @@
 
 <head>
 	<title>Chat app using Socket IO and Node JS</title>
-	<script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" type="text/css" href="index.css"/>
 </head>
 
 <body>
 	<h1 class="font-bold text-green-500
 			text-3xl text-center mt-5">
-		GeeksforGeeks
+		Disaccord
 	</h1>
 	<div>
 		<h2 class="font-semibold text-xl
 				text-center mt-5"
 			id="logo">
-			Chat App using Socket io
+			Chat App
 		</h2>
 	</div>
 	<form class="flex flex-col justify-center
@@ -61,7 +61,7 @@
 	});
 
 	socket.on("send name", (username) => {
-		let name = document.createElement("p");
+		let name = document.createElement("chat");
 		name.style.backgroundColor = "grey";
 		name.style.width = "100%";
 		name.style.textAlign = "center";
