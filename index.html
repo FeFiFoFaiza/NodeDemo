@@ -55,10 +55,10 @@
 		name.style.width = "100%";
 		name.style.textAlign = "left";
 		name.style.color = "white";
-        name.style.fontWeight = "bold";
-        name.style.margin = "0";
-        name.style.padding = "0";
-        name.style.fontSize = "18px";
+        	name.style.fontWeight = "bold";
+        	name.style.margin = "0";
+        	name.style.padding = "0";
+        	name.style.fontSize = "18px";
 		name.textContent = username + ":";
 		messageArea.appendChild(name);
 	});
@@ -66,10 +66,10 @@
 	socket.on("send message", (chat) => {
 		let chatContent = document.createElement("p");
 		chatContent.textContent = chat;
-        chatContent.style.color = "white";
-        chatContent.style.margin = "0";
-        chatContent.style.padding = "0";
-        chatContent.style.marginBottom = "10px";
+		chatContent.style.color = "white";
+		chatContent.style.margin = "0";
+		chatContent.style.padding = "0";
+		chatContent.style.marginBottom = "10px";
 		messageArea.appendChild(chatContent);
 	});
 </script>
